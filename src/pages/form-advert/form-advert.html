@@ -1,0 +1,50 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title center>Formulaire d'annonce</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="pictureURI; else templateButton">
+    <ion-card class="block">
+      <ion-icon name="trash" class="deleteIcon" (click)="deletePicture()"></ion-icon>
+      <img [src]="pictureURI">
+    </ion-card>
+  </div>
+  <ng-template #templateButton>
+    <div padding>
+      <button class="btn-add-picture" offset-3 col-6 *ngIf="picture == null" ion-button outline (click)="addPicture()">Ajouter une image</button>
+    </div>
+  </ng-template>
+
+  <form [formGroup]="advertForm" (ngSubmit)="postAdvert()">
+    <div class="title-section-deal">
+      <h6 padding>Informations sur l'annonce</h6>
+    </div>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Titre</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label stacked>Description</ion-label>
+        <ion-textarea formControlName="description" rows="4"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Prix</ion-label>
+        <ion-input type="number" formControlName="price"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Localisation</ion-label>
+        <ion-input type="number" formControlName="localisation"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button offset-1 col-10 type="submit" ion-button center style="background-color:green">{{buttonForm}}</button>
+    </div>
+  </form>
+</ion-content>

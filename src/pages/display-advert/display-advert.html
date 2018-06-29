@@ -1,0 +1,25 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title center>{{advert.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="pictureURI">
+    <ion-card class="block">
+      <img [src]="pictureURI">
+    </ion-card>
+  </div>
+
+  <ion-card padding>
+    <h3>{{advert.title}}</h3>
+    <br>
+    <p>{{advert.description}}</p>
+    <br>
+    <p>Prix: {{advert.price}} €</p>
+  </ion-card>
+  
+</ion-content>

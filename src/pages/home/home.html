@@ -1,0 +1,49 @@
+<page-toast-event></page-toast-event>
+<ion-header>
+  <ion-toolbar>
+    <ion-title center>Annonces</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="addAdvert()">
+            <ion-icon name="add" ></ion-icon>
+          </button>
+      <button *ngIf="!idUser; else templateButton"ion-button icon-only color="royal" (click)="login()">
+        <ion-icon name="log-in"></ion-icon>
+      </button>
+      <ng-template #templateButton>
+          <button ion-button icon-only color="royal" (click)="myAdverts()">
+        <ion-icon name="list-box"></ion-icon>
+        
+              
+            </button>
+          <button ion-button icon-only color="royal" (click)="logOut()">
+              <ion-icon name="log-out"></ion-icon>
+            </button>
+        </ng-template>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="advertsList">
+    <ion-card *ngFor="let advert of advertsList" (click)="displayAdvert($event,advert)">
+      <img src="{{advert.img}}" />
+      <ion-card-content>
+        <ion-card-title>
+          {{advert.title}}
+        </ion-card-title>
+      </ion-card-content>
+      <ion-row no-padding>
+          <ion-col text-left>
+              <p>Prix : {{advert.price}} €</p>
+            </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='eye'></ion-icon>
+            voir
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+</ion-content>

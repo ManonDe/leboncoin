@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title center>Créer un compte</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <div class="title-section-deal">
+      <h6 padding>rejoignez nous!</h6>
+    </div>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Pseudo</ion-label>
+        <ion-input type="text" formControlName="pseudo"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label stacked>prénom</ion-label>
+        <ion-input type="text" formControlName="firstname"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label stacked>Nom</ion-label>
+        <ion-input type="text" formControlName="lastname"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label stacked>mot de passe</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Confirmation du mot de passe</ion-label>
+        <ion-input type="password" formControlName="confirmPassword"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button offset-1 col-10 type="submit" ion-button center style="background-color:red">Go</button>
+    </div>
+  </form>
+</ion-content>

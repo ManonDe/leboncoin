@@ -1,0 +1,56 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title center>Mes Annonces</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="goToHome()">
+            <ion-icon name="home"></ion-icon>
+          </button>
+      <button ion-button icon-only color="royal" (click)="addAdvert()">
+          <ion-icon name="add" ></ion-icon>
+        </button>
+    <button *ngIf="!idUser; else templateButton"ion-button icon-only color="royal" (click)="login()">
+      <ion-icon name="log-in"></ion-icon>
+    </button>
+    <ng-template #templateButton>
+        <button ion-button icon-only color="royal" (click)="logOut()">
+            <ion-icon name="log-out"></ion-icon>
+          </button>
+      </ng-template>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="advertsList">
+    <ion-card *ngFor="let advert of advertsList">
+      <img src="{{advert.img}}" />
+      <ion-card-content>
+        <ion-card-title>
+          {{advert.title}}
+        </ion-card-title>
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="danger" (click)="updateAdvert($event, advert)" icon-start>
+            <ion-icon name='create'></ion-icon>
+            Modifier
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button clear small color="danger" (click)="deleteAdvert($event, advert)" icon-start>
+            <ion-icon name='trash'></ion-icon>
+            Supprimer
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear small color="danger" (click)="displayAdvert($event, advert)" icon-start>
+            <ion-icon name='eye'></ion-icon>
+            Voir
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+</ion-content>

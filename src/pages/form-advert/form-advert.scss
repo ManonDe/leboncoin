@@ -1,0 +1,33 @@
+page-form-advert {
+    .title-section-deal{
+        background-color: #dfdfdf;
+        color: cornflowerblue;
+        height: 3em;
+        display: flex!important;
+        align-items: center!important;
+    }
+    .btn-add-picture{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .block{
+        position: relative;
+        .deleteIcon{
+            position: absolute;
+            margin-left: 90%;
+            margin-top: 5px;
+            color: #ffffff;
+            font-size: 2em;
+        }
+    }
+    ion-content.content-md[padding] .scroll-content {
+        padding-bottom: 16px !important;
+    }
+    
+    ion-content.content-md:not([padding]) .scroll-content {
+        padding-bottom: 0 !important;
+    }
+    .alert-md .alert-radio-group, .alert-md .alert-checkbox-group {
+        height: 300px !important; 
+    }
+}
